@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-*4*ra&$xvv*ut!-!c%eyxxi(ewlosh(&&k+mwew)85zgf2m4qg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '5432', '127.0.0.1']
 
 
 # Application definition
@@ -81,9 +81,11 @@ WSGI_APPLICATION = 'social_network.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dj_diplom',
-        'USER': 'adilet',
-        'PASSWORD': '1',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'veronika',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
@@ -122,7 +124,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+STATIC_URL = '/'
 STATIC_URL = 'static/'
+
+MEDIA_ROOT = '/'
+MEDIA_URL = 'media/'
 # настройте STATIC_ROOT, MEDIA_URL и MEDIA_ROOT
 
 # Default primary key field type
