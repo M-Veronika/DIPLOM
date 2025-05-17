@@ -1,17 +1,21 @@
 from rest_framework import serializers
 from .models import Post, Comment, Like
 
+
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = ['author', 'text', 'created_at']
+
 
 class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
         fields = ['author', 'post']
 
-# Сериализация поста 
+
+# Сериализация поста
+
 class PostSerializer(serializers.ModelSerializer):
     comments = CommentSerializer(many=True, read_only=True)
     likes = LikeSerializer(many=True, read_only=True)
@@ -22,9 +26,9 @@ class PostSerializer(serializers.ModelSerializer):
         ret['likes_count'] = len(ret['likes'])
         ret.pop('likes')
         return ret
-    
+
     class Meta:
         model = Post
-        
+
         # Определение доступных полей
         fields = ['id', 'text', 'image', 'created_at', 'comments', 'likes']

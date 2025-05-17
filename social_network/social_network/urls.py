@@ -29,12 +29,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/', PostListCreateView.as_view(), name='post-list-create'),
     path('posts/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
-    path('comments/', CommentListCreateView.as_view(), name='comment-list-create'),
-    path('comments/<int:pk>/', CommentDetailView.as_view(), name='comment-detail'),
+    path(
+        'comments/',
+        CommentListCreateView.as_view(),
+        name='comment-list-create'
+        ),
+    path(
+        'comments/<int:pk>/',
+        CommentDetailView.as_view(),
+        name='comment-detail'
+        ),
     path('likes/', LikeListCreateView.as_view(), name='like-list-create')
 ] \
-# Добавление статического пути
 + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
-# Добавление пути для пользовательских файлов
 + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

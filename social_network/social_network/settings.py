@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*4*ra&$xvv*ut!-!c%eyxxi(ewlosh(&&k+mwew)85zgf2m4qg'
+SECRET_KEY = 'django-insecure-*4*ra&$xvv*ut!-'
+'!c%eyxxi(ewlosh(&&k+mwew)85zgf2m4qg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -89,22 +91,31 @@ DATABASES = {
     }
 }
 
-
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'HOST': os.environ['DB_HOST'],
+#        'PORT': os.environ['DB_PORT'],
+#        'NAME': os.environ['DB_NAME'],
+#        'USER': os.environ['DB_USER'],
+#        'PASSWORD': os.environ['DB_PASSWORD']
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_'
+        'validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_'
+        'validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_'
+        'validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_'
+        'validation.NumericPasswordValidator',
     },
 ]
 
@@ -124,10 +135,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = '/'
+STATIC_ROOT = '/'
 STATIC_URL = 'static/'
 
-MEDIA_ROOT = '/'
+MEDIA_ROOT = '/media'
 MEDIA_URL = 'media/'
 # настройте STATIC_ROOT, MEDIA_URL и MEDIA_ROOT
 

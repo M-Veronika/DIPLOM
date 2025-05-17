@@ -17,7 +17,7 @@ class Post(models.Model):
 
 # Тип лайка
 class Like(models.Model):
-    # Создает связь один ко многим, 
+    # Создает связь один ко многим,
     # Аргумент related_name создает алиас для быстроого доступа к связи
     # Аргумент on_delete задает поведение удаления связанных данных
     post = models.ForeignKey(
