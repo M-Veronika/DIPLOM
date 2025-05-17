@@ -83,20 +83,14 @@ WSGI_APPLICATION = 'social_network.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'veronika',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'HOST': os.environ['DB_HOST'],
+        'PORT': int(os.environ['DB_PORT']),
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD']
     }
 }
 
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'HOST': os.environ['DB_HOST'],
-#        'PORT': os.environ['DB_PORT'],
-#        'NAME': os.environ['DB_NAME'],
-#        'USER': os.environ['DB_USER'],
-#        'PASSWORD': os.environ['DB_PASSWORD']
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
